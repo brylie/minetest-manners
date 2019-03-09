@@ -1,0 +1,8 @@
+A simple mod to allow players to fart and burp in a polite manner.
+
+This mod adds two new chat commands:
+- toot
+- burp
+
+When issuing a command, one of several toot or burp sounds will play, followed by an 'excuse me' variant. Nearby players will also hear the sounds.
+
