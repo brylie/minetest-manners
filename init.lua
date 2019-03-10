@@ -1,28 +1,26 @@
-local function say_excuse_me()
-    minetest.sound_play("excuse_me", {
-        object = player,
-        max_hear_distance = 10,
-        gain = 10.0,
-    })
+local function emit_player_sound(player_name, sound_type)
+    local player = minetest.get_player_by_name(player_name)
+
+    -- make sure player is in game
+    if player then
+        minetest.sound_play(sound_type, {
+            object = player,
+        })
+    end
+end
+
+function be_polite(player_name)
+    emit_player_sound(player_name, "excuse_me")
 end
 
 minetest.register_chatcommand("toot", {
     privs = {
         interact = true,
     },
-    func = function(name, param)
-        local player = minetest.get_player_by_name(name)
+    func = function(player_name, param)
+        emit_player_sound(player_name, "toot")
         
-        if not player then
-            return false, "Player not found"
-        end
-        
-        minetest.sound_play("toot", {
-            object = player,
-	        max_hear_distance = 15,
-        })
-        
-        minetest.after(1.2, say_excuse_me)
+        minetest.after(1.2, emit_player_sound, player_name, "excuse_me")
         
         return true
     end,
@@ -31,20 +29,10 @@ minetest.register_chatcommand("burp", {
     privs = {
         interact = true,
     },
-    func = function(name, param)
-        local player = minetest.get_player_by_name(name)
+    func = function(player_name, param)
+        emit_player_sound(player_name, "burp")
 
-        if not player then
-            return false, "Player not found"
-        end
-
-
-        minetest.sound_play("burp", {
-            object = player,
-	        max_hear_distance = 15,
-        })
-
-        minetest.after(1.2, say_excuse_me)
+        minetest.after(1.2, be_polite, player_name)
 
         return true
     end,
