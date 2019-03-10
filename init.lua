@@ -20,11 +20,12 @@ minetest.register_chatcommand("toot", {
     func = function(player_name, param)
         emit_player_sound(player_name, "toot")
         
-        minetest.after(1.2, emit_player_sound, player_name, "excuse_me")
+        minetest.after(1.2, be_polite, player_name)
         
         return true
     end,
 })
+
 minetest.register_chatcommand("burp", {
     privs = {
         interact = true,
