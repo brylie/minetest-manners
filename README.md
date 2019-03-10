@@ -1,2 +1,2 @@
-# minetest-manners
-Add polite burping and farting to Minetest.
+# Minetest manners
+Add polite burps and toots to [Minetest](https://minetest.net).

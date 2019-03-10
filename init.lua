@@ -12,14 +12,14 @@ minetest.register_chatcommand("toot", {
     },
     func = function(name, param)
         local player = minetest.get_player_by_name(name)
+        
         if not player then
             return false, "Player not found"
         end
         
-        minetest.sound_play("fart", {
+        minetest.sound_play("toot", {
             object = player,
-	        max_hear_distance = 10,
-            gain = 10.0,
+	        max_hear_distance = 15,
         })
         
         minetest.after(1.2, say_excuse_me)
@@ -33,6 +33,7 @@ minetest.register_chatcommand("burp", {
     },
     func = function(name, param)
         local player = minetest.get_player_by_name(name)
+
         if not player then
             return false, "Player not found"
         end
@@ -40,8 +41,7 @@ minetest.register_chatcommand("burp", {
 
         minetest.sound_play("burp", {
             object = player,
-	        max_hear_distance = 10,
-            gain = 10.0,
+	        max_hear_distance = 15,
         })
 
         minetest.after(1.2, say_excuse_me)

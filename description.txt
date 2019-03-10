@@ -1,4 +1,4 @@
-A simple mod to allow players to fart and burp in a polite manner.
+A simple mod to allow players to toot and burp in a polite manner.
 
 This mod adds two new chat commands:
 - toot
